@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario Cliente</title>
+</head>
+<body>
+    <h1 th:text="${cliente.idCliente > 0 ? 'Editar cliente' : 'Nuevo cliente'}"></h1>
+
+    <form th:action="@{/clientes/guardar}" th:object="${cliente}" method="post">
+        <input type="hidden" th:field="*{idCliente}">
+
+        <label>NIT:</label>
+        <input type="text" th:field="*{nit}"><br>
+
+        <label>Nombre:</label>
+        <input type="text" th:field="*{nombre}"><br>
+
+        <label>Apellidos:</label>
+        <input type="text" th:field="*{apellidos}"><br>
+
+        <label>Email:</label>
+        <input type="email" th:field="*{email}"><br>
+
+        <button type="submit">Guardar</button>
+        <a th:href="@{/clientes}">Cancelar</a>
+    </form>
+</body>
+</html>

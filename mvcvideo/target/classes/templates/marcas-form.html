@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario Marca</title>
+</head>
+<body>
+    <h1 th:text="${marca.idMarca > 0 ? 'Editar marca' : 'Nueva marca'}"></h1>
+
+    <form th:action="@{/marcas/guardar}" th:object="${marca}" method="post">
+        <input type="hidden" th:field="*{idMarca}">
+
+        <label>Nombre:</label>
+        <input type="text" th:field="*{nombre}">
+
+        <button type="submit">Guardar</button>
+        <a th:href="@{/marcas}">Cancelar</a>
+    </form>
+</body>
+</html>
